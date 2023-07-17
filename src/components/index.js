@@ -1,7 +1,7 @@
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import Feed from "./Feed";
-import Nav_Bar from './Nav_Bar'
+import AboutUs from "./AboutUs";
 export {
-    NavBar,Footer,Feed,Nav_Bar
+    NavBar,Footer,Feed,AboutUs
 }

@@ -16,12 +16,9 @@ const NavBar = () => {
         </h2>
       </div>
       <div className='flex flex-row pr-2 '>
-        <h1 className='pl-2 pr-2'>
-         Sign In
-        </h1>
-        <h3 className='pl-2 pr-2'>
-         Sign Up
-        </h3>
+        <Link to='/AboutUs'>
+          About Us
+        </Link>
       </div>
     </nav>
   )

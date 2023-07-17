@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavBar,Feed,Footer,AboutUs} from '../src/components/index'
+import {NavBar,Feed,Footer,AboutUs, DisplayPhotos} from '../src/components/index'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import MatchDetails from './components/MatchDetails'
 
@@ -10,6 +10,7 @@ const App = () => {
       <NavBar />
         <Routes>
           <Route path='/' exact element={<Feed />} />
+          <Route path='/Photos' exact element={<DisplayPhotos />} />
           <Route path='/MatchDetails' exact element={<MatchDetails />} />
           <Route path='/AboutUs' exact element={<AboutUs />} />
         </Routes>

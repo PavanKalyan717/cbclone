@@ -12,6 +12,13 @@ const options={
 
 export const fetchFromAPI= async(url)=>{
     const {data} = await axios.get(`${BASE_URL}/${url}`,options)
-    console.log(data)
+    console.log('url is',url)
     return data
+}
+
+export const fetchImagefromAPI= async(url)=>{
+    const response = await fetch(`${BASE_URL}/${url}?p=det&d=high`,options)
+    const imageBlob = await response.blob()
+    const imageBlobUrl= URL.createObjectURL(imageBlob)
+    return imageBlobUrl
 }

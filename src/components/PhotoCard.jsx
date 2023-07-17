@@ -15,16 +15,14 @@ const PhotoCard = ({photoid,alt}) => {
     if(photoid){
         return(
     <div>
-        <img src={photo} alt={alt}  />
+        <img src={photo} alt={alt} 
+        className='rounded-md'
+        />
     </div>
         )
     }
     else{
-        return(
-            <h1>
-                Image corrupted.
-            </h1>
-        )
+        return null
     }
 }
 

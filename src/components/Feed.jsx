@@ -3,6 +3,7 @@ import { fetchFromAPI } from '../utils/fetchFromAPI'
 import { useState } from 'react'
 import MatchList from './MatchList'
 import data from '../constants/index'
+import News from './News'
 const Feed = () => {
   const [matchlist, setMatchlist] = useState(data?.data[0])
   //console.log('Hello data',data?.data[0])
@@ -12,10 +13,11 @@ const Feed = () => {
   //     setMatchlist(data)
   //   })
   // },[])
-  
+
   return (
     <div>
       <MatchList list={matchlist}  />
+      <News />
     </div>
   )
 }

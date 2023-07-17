@@ -14,14 +14,18 @@ const DisplayPhotos = () => {
   }, [])
   
   return (
-    <div> 
-      <Carousel cols={4} rows={1} gap={10} loop className='pt-5'>
+    <div className='py-5'> 
+      <Carousel cols={4} rows={1} gap={10} loop >
       {
         photos?.photoGalleryInfoList?.map((item)=>(
+          (item?.photoGalleryInfo?.imageId)?
           <Carousel.Item >
             <PhotoCard photoid={item?.photoGalleryInfo?.imageId} alt= {item?.photoGalleryInfo?.headline} />
             <p>{item?.photoGalleryInfo?.headline}</p>
           </Carousel.Item>
+          :
+          <>
+          </>
         ))
       }
       </Carousel>

@@ -22,3 +22,9 @@ export const fetchImagefromAPI= async(url)=>{
     const imageBlobUrl= URL.createObjectURL(imageBlob)
     return imageBlobUrl
 }
+
+export const fetchRankFromAPI= async(url)=>{
+    const response = await fetch(`${BASE_URL}/${url}`,options)
+    const result = await response.json()
+    return result
+}

@@ -16,14 +16,19 @@ const NavBar = () => {
         </h2>
       </div>
       <div className='flex flex-row pr-2 '>
-        <div className='px-2'>
-        <Link to='/AboutUs'>
-          About Us
+      <div className='px-2'>
+        <Link to='/Stats'>
+          Stats
         </Link>
         </div>
         <div className='px-2'>
         <Link to='/Photos'>
           Gallery
+        </Link>
+        </div>
+        <div className='px-2'>
+        <Link to='/AboutUs'>
+          About Us
         </Link>
         </div>
       </div>

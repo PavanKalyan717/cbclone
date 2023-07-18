@@ -5,7 +5,7 @@ import MatchList from './MatchList'
 import data from '../constants/index'
 import News from './News'
 const Feed = () => {
-  const [matchlist, setMatchlist] = useState(data?.data[0])
+  const [matchlist, setMatchlist] = useState(data)
   //console.log('Hello data',data?.data[0])
   // useEffect(()=>{
   //   fetchFromAPI('matches/v1/recent').then((data)=>{

@@ -2,6 +2,7 @@ import React from 'react'
 import news from '../constants/news'
 import Carousel from 'react-grid-carousel'
 import PhotoCard from './PhotoCard'
+import { Link } from 'react-router-dom'
 
 const News = () => {
   console.log('news is',news?.storyList)
@@ -14,10 +15,12 @@ const News = () => {
         {
           news?.storyList.map((item)=>(
             (item?.story?.hline)?
-            <Carousel.Item>
+            <Carousel.Item >
+              <Link to='/NewsDetails' state={item?.story?.id}>
                 <PhotoCard photoid={item?.story?.imageId} alt={item?.story?.hline}  />
-                <p>{item?.story?.hline}</p>
-                <h1>{item?.story?.intro}</h1>
+                <p >{item?.story?.hline}</p>
+                <h1 >{item?.story?.intro}</h1>
+              </Link>
             </Carousel.Item>
             :<>
             </>

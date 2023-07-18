@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { fetchFromAPI, fetchImagefromAPI } from '../utils/fetchFromAPI'
+import {  fetchImagefromAPI } from '../utils/fetchFromAPI'
 
 const PhotoCard = ({photoid,alt}) => {
     const [photo,setPhoto] = useState('')
@@ -16,7 +16,7 @@ const PhotoCard = ({photoid,alt}) => {
         return(
     <div>
         <img src={photo} alt={alt} 
-        className='rounded-md'
+        className='rounded-md' 
         />
     </div>
         )

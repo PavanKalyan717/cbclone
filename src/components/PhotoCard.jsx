@@ -14,11 +14,12 @@ const PhotoCard = ({photoid,alt}) => {
     
     if(photoid){
         return(
-    <div>
-        <img src={photo} alt={alt} 
-        className='rounded-md' 
-        />
-    </div>
+    
+        <div className='flex justify-center' >
+            <img src={photo} alt={alt}
+            className='rounded-full w-[40px] h-[40px]'
+            />
+        </div>
         )
     }
     else{

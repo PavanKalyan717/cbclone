@@ -110,14 +110,15 @@ import ranks from '../constants/ranks'
 
 
 import React, { useState } from 'react'
+import PhotoCard from './PhotoCard'
 
 const Stats = () => {
     const [category, setCategory] = useState('batsmen')
     const [format, setFormat] = useState('odi')
     const [gender, setGender] = useState('Men')
     const [rankData, setRankData] = useState([])
-    // const [isSubmitted, setisSubmitted] = useState(false)
-
+    const [isSubmitted, setisSubmitted] = useState(false)
+    console.log('rank data is',rankData)
     const Trend=({trend})=>{
         if(trend==='Flat')
         {
@@ -135,11 +136,15 @@ const Stats = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+    
+        
         console.log(category, format, gender)
         fetchRankFromAPI(`stats/v1/rankings/${category}?formatType=${format}`).then(
             (data) => {
+                console.log('api call happened')
                 setRankData(data)
                 console.log(rankData)
+                setisSubmitted(true)
             }
         )
     }
@@ -188,32 +193,50 @@ const Stats = () => {
                 <input type='submit' value='Submit' className='bg-slate-600 cursor-pointer p-2 rounded-lg mx-4' />
             </form>
             <div>
+            {
+                isSubmitted?
+                <div>
                 <table className='w-full text-center'>
-                    <tr >
-                        <th>Rank</th>
-                        <th>Name</th>
-                        <th>Country</th>
-                        <th>Rating</th>
-                        <th>Points</th>
-                        <th>trend</th>
-                        <th>profile Pic</th>
-                    </tr>
+                    <thead>
+                        <tr >
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Country</th>
+                            <th>Rating</th>
+                            <th>Points</th>
+                            <th>trend</th>
+                            <th>profile Pic</th>
+                        </tr>
+                    </thead>
                     
 
                         {
-                            ranks.rank.map((item) => (
-                            <tr >    
-                                <td>{item.rank}</td>
-                                <td>{item.name}</td>
-                                <td>{item.country}</td>
-                                <td>{item.rating}</td>
-                                <td>{item.points}</td>
-                                <td><Trend trend={item.trend}/></td>
-                                <td>{item.faceImageId}</td>
-                            </tr>
+                            rankData.rank.map((item) => (
+                            <tbody>
+                                <tr className='py-10' >
+                                    <td>{item.rank}</td>
+                                    <td>{item.name}</td>
+                                    <td>{item.country}</td>
+                                    <td>{item.rating}</td>
+                                    <td>{item.points}</td>
+                                    <td><Trend trend={item.trend}/></td>
+                                    <td className='content-center' >
+                                
+                                        <PhotoCard photoid={item.faceImageId || item?.imageId} alt={item.name} />
+                                    </td>
+                                </tr>
+                            </tbody>
                             ))
                         } 
                 </table>
+                </div>
+                :
+                <div>
+                    <p>
+                        Please select the Categories and click submit to see the Ranks.
+                    </p>
+                </div>
+            }
             </div>
         </div>
     )

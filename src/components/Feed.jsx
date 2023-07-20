@@ -17,7 +17,7 @@ const Feed = () => {
   return (
     <div>
       <MatchList list={matchlist}  />
-      <News />
+      {/* <News /> */}
     </div>
   )
 }

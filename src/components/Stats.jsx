@@ -165,7 +165,7 @@ const Stats = () => {
                 <select value={category} onChange={handleCategory} className='p-2 rounded-lg mx-4' >
                     {
                         statinfo.Category.map((item) => (
-                            <option value={item} className='py-2'>
+                            <option value={item} className='py-2' >
                                 {item}
                             </option>
                         ))
@@ -190,7 +190,8 @@ const Stats = () => {
                         ))
                     }
                 </select>
-                <input type='submit' value='Submit' className='bg-slate-600 cursor-pointer p-2 rounded-lg mx-4' />
+                <input type='submit' value='Submit' 
+                className='hover:bg-[#28bc95] bg-white cursor-pointer p-2 rounded-lg mx-4' />
             </form>
             <div>
             {
@@ -222,7 +223,9 @@ const Stats = () => {
                                     <td><Trend trend={item.trend}/></td>
                                     <td className='content-center' >
                                 
-                                        <PhotoCard photoid={item.faceImageId || item?.imageId} alt={item.name} />
+                                        <PhotoCard photoid={item.faceImageId || item?.imageId} alt={item.name}
+                                        styling={'rounded-full w-[40px] h-[40px]'}
+                                        />
                                     </td>
                                 </tr>
                             </tbody>
@@ -231,7 +234,7 @@ const Stats = () => {
                 </table>
                 </div>
                 :
-                <div>
+                <div className='flex justify-center py-6'>
                     <p>
                         Please select the Categories and click submit to see the Ranks.
                     </p>

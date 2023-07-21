@@ -1,9 +1,8 @@
 import React,{useEffect,useState} from 'react'
 import {  fetchImagefromAPI } from '../utils/fetchFromAPI'
 
-const PhotoCard = ({photoid,alt}) => {
+const PhotoCard = ({photoid,alt,styling}) => {
     const [photo,setPhoto] = useState('')
-    console.log('photo is', photo,photoid)
     useEffect(() => {
         const url= `img/v1/i1/c${photoid}/i.jpg`
         console.log(url)
@@ -17,7 +16,7 @@ const PhotoCard = ({photoid,alt}) => {
     
         <div className='flex justify-center' >
             <img src={photo} alt={alt}
-            className='rounded-full w-[40px] h-[40px]'
+            className={styling || 'rounded-md'}
             />
         </div>
         )

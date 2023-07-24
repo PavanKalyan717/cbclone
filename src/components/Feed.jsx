@@ -7,10 +7,12 @@ import News from './News'
 import MatchDetails from './MatchDetails'
 import { Routes, Route } from 'react-router-dom'
 import Carousel from 'react-grid-carousel'
+import LiveMatches from './LiveMatches'
 
 const Feed = () => {
   const [matchlist, setMatchlist] = useState(data)
   const [liveMatches, setLiveMatches] = useState([])
+  console.log(liveMatches)
   //console.log('Hello data',data?.data[0])
   // useEffect(()=>{
   //   fetchFromAPI('matches/v1/recent').then((data)=>{
@@ -28,24 +30,8 @@ const Feed = () => {
   return (
     <div>
       <MatchList list={matchlist} />
-      <div className='flex flex-nowrap overflow-auto scroll-w '>
-
-        {
-          liveMatches?.typeMatches?.map((item) => (
-            item?.seriesMatches?.map((match) =>
-
-            (
-              <MatchDetails match={match?.seriesAdWrapper} />
-            )
-            )
-            )
-            
-            
-            )
-          }
-
-      </div>
-      <News />
+      <LiveMatches liveMatches={liveMatches} />
+      {/* <News /> */}
     </div>
   )
 }

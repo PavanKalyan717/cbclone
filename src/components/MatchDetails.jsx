@@ -8,12 +8,14 @@ const MatchDetails = ({match}) => {
 //     console.log('match details are', details)
     const details = match
     return (
-    <div  className='py-6 flex' >
+    // <div  className='py-6 flex' >
             
-        {
-            details?.matches?.map((match)=>(
+    //     {
+    //         details?.matches?.map((match)=>(
 
-                <div className='p-5 mx-4 bg-white h-[12rem] w-[20rem] rounded-lg shadow-lg cursor-pointer '>
+                <div 
+                className='p-5 my-6 bg-white h-[12rem] rounded-lg shadow-lg cursor-pointer '
+                >
                     <p className='text-[12px]'>{match?.matchInfo?.seriesName}</p>
                     <div className='flex justify-between items-center py-2'>
                         <><p>{match?.matchInfo?.matchDesc}</p>
@@ -45,10 +47,10 @@ const MatchDetails = ({match}) => {
                     <p className='text-[14px] py-2'>{match?.matchInfo?.status}</p>
                            
                 </div>
-            ))
-        }
+    //         ))
+    //     }
         
-    </div>
+    // </div>
   )
 }
 

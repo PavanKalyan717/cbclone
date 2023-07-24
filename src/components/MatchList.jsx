@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-const MatchCard = ({ matchDetails }) => {
+export const MatchCard = ({ matchDetails }) => {
 
   if (matchDetails?.seriesAdWrapper) {
     return (
@@ -42,7 +42,7 @@ const MatchCard = ({ matchDetails }) => {
 //   )
 // }
 
-const MatchList = ({ list }) => {
+export const MatchList = ({ list }) => {
   return (
     <div className='flex flex-row justify-evenly items-center pt-4'>
       {
@@ -93,4 +93,3 @@ const MatchList = ({ list }) => {
   )
 }
 
-export default MatchList

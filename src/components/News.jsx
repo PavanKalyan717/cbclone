@@ -1,13 +1,24 @@
-import React from 'react'
-import news from '../constants/news'
+import React,{useState,useEffect} from 'react'
+//import news from '../constants/news'
 import Carousel from 'react-grid-carousel'
 import PhotoCard from './PhotoCard'
 import { Link } from 'react-router-dom'
+import { fetchFromAPI } from '../utils/fetchFromAPI'
 
 const News = () => {
-  console.log('news is',news?.storyList)
+  const [news, setNews] = useState()
+  console.log('news is',news)
+
+  useEffect(() => {
+    fetchFromAPI('news/v1/index').then((data)=>(
+      setNews(data)
+
+    ))
+  }, [])
+  
+
   return (
-    <div className='py-4'>
+    <div className='py-4 text-sm'>
       <h1 className='text-center py-4'>
         News:
       </h1>

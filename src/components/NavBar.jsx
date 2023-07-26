@@ -7,30 +7,35 @@ const NavBar = () => {
     <nav className='flex flex-row justify-around items-center
     py-2 font-extrabold text-xl bg-[#009270] shadow-lg'>
       <div className='flex flex-row items-center'>
-      <Link to='/'>
-        <img src={CBImage} alt="logo" width={60} height={60}
-          className='rounded-xl pl-2 pr-2'
-        />
+        <Link to='/'>
+          <img src={CBImage} alt="logo" width={60} height={60}
+            className='rounded-xl pl-2 pr-2'
+          />
         </Link>
         <h2>
-         CricBuzz Clone
+          CricBuzz Clone
         </h2>
       </div>
       <div className='flex flex-row pr-2 '>
       <div className='px-2'>
-        <Link to='/Stats'>
-          Stats
-        </Link>
+          <Link to='/NewsSection'>
+            News
+          </Link>
         </div>
         <div className='px-2'>
-        <Link to='/Photos'>
-          Gallery
-        </Link>
+          <Link to='/Stats'>
+            Stats
+          </Link>
         </div>
         <div className='px-2'>
-        <Link to='/AboutUs'>
-          About Us
-        </Link>
+          <Link to='/Photos'>
+            Gallery
+          </Link>
+        </div>
+        <div className='px-2'>
+          <Link to='/AboutUs'>
+            About Us
+          </Link>
         </div>
       </div>
     </nav>

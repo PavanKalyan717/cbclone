@@ -18,15 +18,17 @@ const NewsDetails = () => {
 
   return (
     <div>
-        <h1>{newsDetails?.headline}</h1>
+        <div className='flex flex-col items-center justify-center'>
+        <h1 className='py-4 font-bold' >{newsDetails?.headline}</h1>
         <PhotoCard photoid={newsDetails?.coverImage?.id} alt={newsDetails?.coverImage?.caption} />
         {
-            newsDetails?.content?.map((item)=>(
-                <p>
-                    {item?.content?.contentValue}
-                </p>
+          newsDetails?.content?.map((item)=>(
+            <p className='w-[50%] py-4'>
+                {item?.content?.contentValue}
+            </p>
             ))
-        }
+          }
+        </div>
     </div>
   )
 }

@@ -30,7 +30,7 @@ const Feed = () => {
   return (
     <div>
       <MatchList list={matchlist} />
-      <LiveMatches liveMatches={liveMatches} /> 
+      {/* <LiveMatches liveMatches={liveMatches} />  */}
       <News />
     </div>
   )

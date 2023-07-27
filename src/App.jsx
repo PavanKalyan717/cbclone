@@ -6,6 +6,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import NewsDetails from './components/NewsDetails'
 import Stats from './components/Stats'
 import NewsSection from './components/NewsSection'
+import MatchInfo from './components/MatchInfo'
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
           <Route path='/NewsDetails' exact element={<NewsDetails />} />
           <Route path='/AboutUs' exact element={<AboutUs />} />
           <Route path='/Stats' exact element={<Stats />} />
-
+          <Route path='/MatchInfo/:matchid' exact element={<MatchInfo />} />
           <Route path='/NewsSection' exact element={<NewsSection />} />
           <Route path="*" element={<p>Path not resolved</p>} />
         </Routes>

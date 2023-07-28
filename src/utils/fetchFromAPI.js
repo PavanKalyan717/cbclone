@@ -5,8 +5,8 @@ const BASE_URL= 'https://cricbuzz-cricket.p.rapidapi.com'
 const options={
     url:BASE_URL,
     headers:{
-        'X-RapidAPI-Key': '6ef6c4b183mshfd73a91eef2fb18p1c4640jsn6d7a9a67fe31',
-        // 'X-RapidAPI-Key': '5bfa977bd8mshfb706f0ccc12820p1e70c9jsn1d42fa9f516a',
+        // 'X-RapidAPI-Key': '6ef6c4b183mshfd73a91eef2fb18p1c4640jsn6d7a9a67fe31',
+        'X-RapidAPI-Key': '5bfa977bd8mshfb706f0ccc12820p1e70c9jsn1d42fa9f516a',
         
         'X-RapidAPI-Host': 'cricbuzz-cricket.p.rapidapi.com'
     }

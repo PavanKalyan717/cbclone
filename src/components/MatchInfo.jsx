@@ -15,14 +15,14 @@ const MatchInfo = () => {
 
     return (
         <div >
-            
+
             <p className='mx-2 text-lg font-bold py-2'>{matchInfo?.status}</p>
 
             {
 
                 matchInfo?.scoreCard?.map((item) => (
-                    <div className='py-2'>
-                        <div className='w-[50%] flex justify-between  bg-slate-600 mx-2 p-2 text-white font-semibold'>
+                    <div className='py-2 border-b-2 border-black '>
+                        <div className='flex justify-between  bg-[#009270] m-2 p-2 text-white font-semibold'>
                             <p>{item?.batTeamDetails?.batTeamName}</p>
 
                             <div className='flex'>
@@ -62,12 +62,12 @@ const MatchInfo = () => {
                                 )
                             }
                         </div>     */}
-                        <div>
-                            <table className='w-[50%] text-center  mx-2'>
-                                <thead className='bg-slate-500'>
-                                    <tr >
+                        <div className='flex justify-evenly pb-5' >
+                            <table className='w-[55%] text-center mx-2'>
+                                <thead className='bg-[#009270]'>
+                                    <tr className='border-2 border-black text-white' >
                                         <th>Batter</th>
-                                        <th>Out Description1</th>
+                                        <th>Out Description</th>
                                         <th>Runs</th>
                                         <th>Balls</th>
                                         <th>4s</th>
@@ -79,21 +79,94 @@ const MatchInfo = () => {
 
                                 {
                                     Object.entries(item?.batTeamDetails?.batsmenData).map(([batkey, batvalue]) => (
-                                        <tbody>
-                                            <tr className='py-10' >
-                                                <td>{batvalue?.batName}</td>
-                                                <td>{batvalue?.outDesc}</td>
-                                                <td>{batvalue?.runs}</td>
-                                                <td>{batvalue?.balls}</td>
-                                                <td>{batvalue?.fours}</td>
-                                                <td>{batvalue?.sixers}</td>
-                                                <td>{batvalue?.strikeRate}</td>
+                                        <tbody  >
+                                            <tr className=' border-y-2 border-black ' >
+                                                <td className=' border-b-2 border-l-2 border-black '>{batvalue?.batName}</td>
+                                                <td className=' border-b-2 border-black   '>{batvalue?.outDesc}</td>
+                                                <td className=' border-b-2 border-black   '>{batvalue?.runs}</td>
+                                                <td className=' border-b-2 border-black   '>{batvalue?.balls}</td>
+                                                <td className=' border-b-2 border-black   '>{batvalue?.fours}</td>
+                                                <td className=' border-b-2 border-black   '>{batvalue?.sixers}</td>
+                                                <td className=' border-b-2 border-r-2 border-black   '>{batvalue?.strikeRate}</td>
                                             </tr>
                                         </tbody>
                                     ))
                                 }
                             </table>
+                            <table className='w-[40%] text-center  mx-2'>
+                                <thead className='bg-[#009270]'>
+                                    <tr className=' border-2 border-black text-white ' >
+                                        <th>Bowler</th>
+                                        <th>Overs</th>
+                                        <th>Maidens</th>
+                                        <th>Runs</th>
+                                        <th>Wickets</th>
+                                        <th>No Balls</th>
+                                        <th>Wides</th>
+                                        <th>Economy</th>
+                                    </tr>
+                                </thead>
+
+
+                                {
+                                    Object.entries(item?.bowlTeamDetails?.bowlersData).map(([bowkey, bowlvalue]) => (
+                                        <tbody>
+                                            <tr className='py-10' >
+                                                <td  className=' border-b-2 border-l-2 border-black   '>{bowlvalue?.bowlName}</td>
+                                                <td  className=' border-b-2 border-black   '>{bowlvalue?.overs}</td>
+                                                <td  className=' border-b-2 border-black   '>{bowlvalue?.maidens}</td>
+                                                <td  className=' border-b-2 border-black   '>{bowlvalue?.runs}</td>
+                                                <td  className=' border-b-2 border-black   '>{bowlvalue?.wickets}</td>
+                                                <td  className=' border-b-2 border-black   '>{bowlvalue?.no_balls}</td>
+                                                <td  className=' border-b-2 border-black   '>{bowlvalue?.wides}</td>
+                                                <td className=' border-b-2 border-r-2 border-black   ' >{bowlvalue?.economy}</td>
+                                            </tr>
+                                        </tbody>
+                                    ))
+                                }
+                            </table>
+
                         </div>
+                        <div className='flex justify-around'>
+                            <p>Extras: </p>
+                            <p>Total: {item?.extrasData?.total}</p>
+                            <p>Byes: {item?.extrasData?.byes}</p>
+                            <p>legByes: {item?.extrasData?.legByes}</p>
+                            <p>No Balls: {item?.extrasData?.noBalls}</p>
+                            <p>Wides: {item?.extrasData?.wides}</p>
+                            <p>Penalty: {item?.extrasData?.penalty}</p>
+                        </div>
+                        <div className='flex justify-evenly py-4'>
+                            <p>Fall of Wickets: </p>
+                            <p>{Object.keys(item?.wicketsData).length}</p>
+                            <p>{item?.wicketsData?.wkt_1?.batName}</p>
+                            {
+
+                                Object.entries(item?.wicketsData).map(([key, value]) => (
+
+                                    <div>
+                                        <p>{value?.batName}</p>
+                                        <p>{value?.wktRuns}-{value?.wktNbr}</p>
+                                        <p>{value?.wktOver}</p>
+                                        <p>{key}</p>
+                                    </div>
+                                ))
+                            }
+                            {/* {
+                            Array.from({length: Object.keys(item?.wicketsData).length},(v,i)=>i+1).map(
+                                (value)=>(
+                                    <div>
+                                       { 
+                                        `item?.wicketsData?.wkt_${value}?.batName`
+                                       }
+                                    </div>
+                                )
+                            )
+                        }
+                         */}
+                        </div>
+                    
+                            
 
                     </div>
                 ))
